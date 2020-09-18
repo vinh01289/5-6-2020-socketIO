@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socketid</title>
+    <script src="socket.io/socket.io.js"></script>
+</head>
+<body>
+    <script>
+        var server = io('http://localhost:3000/');
+
+        function send(){
+            server.emit('client', 'xin chao!');
+        }
+
+        server.on('server', function(data){
+            document.getElementById('kq').innerHTML = data;
+        });
+
+    </script>
+
+    <h1 id="kq"></h1>
+    <button onclick="send()">Gui</button>
+
+</body>
+</html>
